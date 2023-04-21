@@ -5,7 +5,7 @@
 /**
  * main - print random
  *
- * Description: prints random number and negative/zero/positive
+ * Description: prints random number and last digit
  *
  * Return: Always 0 (Success)
  */
