@@ -2,7 +2,7 @@
 
 **/
 * _isdigit - check if numbers are 0 - 9
-* @c: caracter to be cheked.
+* @c: caracter to be cheked
 *
 * Return: '0' or '1'
 */
