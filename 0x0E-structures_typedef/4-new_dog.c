@@ -17,11 +17,11 @@ int _strlen(char *str)
 
 /**
  * _strcpy - string copy
- * @src: Source string
  * @dest: Target string
+ * @src: Source string
  * Return: Pointer to target
  */
-char *_strcpy(char *src, char *dest)
+char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
 
@@ -42,25 +42,37 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_lily;
 
-	if (name == NULL || age < 0 || owner == NULL)
-		return (NULL);
 	new_lily = malloc(sizeof(dog_t));
 	if (new_lily == NULL)
 		return (NULL);
-	new_lily->name = malloc(sizeof(char) * (_strlen(name) + 1));
-	if (new_lily->name == NULL)
+
+	if (name == NULL)
+		new_lily->name = NULL;
+	else
 	{
-		free(new_lily);
-		return (NULL);
+		new_lily->name = malloc(sizeof(char) * (_strlen(name) + 1));
+		if (new_lily->name == NULL)
+		{
+			free(new_lily);
+			return (NULL);
+		}
+		new_lily->name = _strcpy(new_lily->name, name);
 	}
-	new_lily->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
-	if (new_lily->owner == NULL)
+
+	if (owner == NULL)
+		new_lily->owner = NULL;
+	else
 	{
-		free(new_lily);
-		return (NULL);
+		new_lily->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+		if (new_lily->owner == NULL)
+		{
+			free(new_lily->name);
+			free(new_lily);
+			return (NULL);
+		}
+		new_lily->owner = _strcpy(new_lily->owner, owner);
 	}
-	new_lily->name = _strcpy(name, new_lily->name);
+
 	new_lily->age = age;
-	new_lily->owner = _strcpy(owner, new_lily->owner);
 	return (new_lily);
 }
