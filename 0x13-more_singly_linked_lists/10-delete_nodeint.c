@@ -1,9 +1,9 @@
 #include "lists.h"
 
 /**
- * delete_nodeint_at_index - deletes node 
+ * delete_nodeint_at_index - deletes node
  * @head: adress of pointer to first node
- * @;index: index of node to delet
+ * @index: index of node to delet
  *
  * Return: 1 on success, -1 on failure
  */
@@ -20,7 +20,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		node = *head;
 		*head = (*head)->next;
 		free(node);
-		return(1);
+		return (1);
 	}
 	node = *head;
 	while (node)
@@ -29,7 +29,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		{
 			prev_node->next = node->next;
 			free(node);
-			return (1)
+			return (1);
 		}
 		i++;
 		prev_node = node;
