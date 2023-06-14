@@ -1,5 +1,6 @@
 #ifndef Main_H
 #define Main_H
+#include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <fcntl.h>
